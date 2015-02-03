@@ -26,8 +26,8 @@ __b58base = len(__b58chars)
 
 global PUBKEY_ADDRESS
 global SCRIPT_ADDRESS
-PUBKEY_ADDRESS = 0
-SCRIPT_ADDRESS = 5
+PUBKEY_ADDRESS = 76 #Darkcoin src/chainparams.cpp L69
+SCRIPT_ADDRESS = 16 #Darkcoin src/chainparams.cpp L70
 
 def rev_hex(s):
     return s.decode('hex')[::-1].encode('hex')
@@ -111,7 +111,7 @@ def public_key_to_bc_address(public_key):
     return public_key_to_pubkey_address(public_key)
 
 
-def hash_160_to_pubkey_address(h160, addrtype=None):
+def hash_160_to_pubkey_address(h160, addrtype=76): #Darkcoin src/chainparams.cpp L69
     """ deprecated """
     if not addrtype:
         addrtype = PUBKEY_ADDRESS
@@ -126,7 +126,7 @@ def hash_160_to_script_address(h160):
     return hash_160_to_address(h160, SCRIPT_ADDRESS)
 
 
-def hash_160_to_address(h160, addrtype = 0):
+def hash_160_to_address(h160, addrtype = 204): #Darkcoin src/chainparams.cpp L71
     """ Checks if the provided hash is actually 160bits or 20 bytes long and returns the address, else None
     """
     if h160 is None or len(h160) is not 20:
@@ -230,7 +230,7 @@ def timestr():
 import logging
 import logging.handlers
 
-logger = logging.getLogger('electrum')
+logger = logging.getLogger('drkelectrum')
 
 def init_logger(logfile):
     hdlr = logging.handlers.WatchedFileHandler(logfile)
