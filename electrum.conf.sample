@@ -26,9 +26,9 @@ path =
 # for each address, history will be pruned if it is longer than this limit
 pruning_limit = 100
 
-[bitcoind]
+[darkcoind]
 bitcoind_host = localhost
-bitcoind_port = 8332
-# user and password from bitcoin.conf
-bitcoind_user = 
-bitcoind_password = 
+bitcoind_port = 9999
+# user and password from darkcoin.conf
+darkcoind_user = 
+darkcoind_password = 
