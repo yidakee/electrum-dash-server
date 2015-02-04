@@ -27,8 +27,8 @@ path =
 pruning_limit = 100
 
 [darkcoind]
-bitcoind_host = localhost
-bitcoind_port = 9999
+darkoind_host = localhost
+darkcoind_port = 9999
 # user and password from darkcoin.conf
 darkcoind_user = 
 darkcoind_password = 

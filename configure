@@ -90,8 +90,9 @@ if [ ! -d $path ]; then
     read -p "Do you want to download it from the Electrum foundry to $path ? " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-	mkdir -p $path
-	wget -O - "http://foundry.electrum.org/leveldb-dump/electrum-fulltree-100-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
+	#mkdir -p $path
+	#wget -O - "http://foundry.electrum.org/leveldb-dump/electrum-fulltree-100-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
+    echo "Darkcoin database isn't available for download at this time."
     fi
 fi
 
@@ -107,16 +108,16 @@ if ! [ -f $logfile ]; then
 fi
 
 
-bitcoind_user=$(read_config "bitcoind_user")
-if ! [ "$bitcoind_user" ]; then
-    read -p "rpcuser (from your bitcoin.conf file): " -r
-    write_config "bitcoind_user" $REPLY
+darkcoind_user=$(read_config "darkcoind_user")
+if ! [ "$darkcoind_user" ]; then
+    read -p "rpcuser (from your darkcoin.conf file): " -r
+    write_config "darkcoind_user" $REPLY
 fi
 
-bitcoind_password=$(read_config "bitcoind_password")
-if ! [ "$bitcoind_password" ]; then
-    read -p "rpcpassword (from your bitcoin.conf file): " -r
-    write_config "bitcoind_password" $REPLY
+darkcoind_password=$(read_config "darkcoind_password")
+if ! [ "$darkcoind_password" ]; then
+    read -p "rpcpassword (from your darkcoin.conf file): " -r
+    write_config "darkcoind_password" $REPLY
 fi
 
 
