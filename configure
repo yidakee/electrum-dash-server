@@ -11,7 +11,7 @@ fi
 source_dir=$(cd "$(dirname "${BASH_SOURCE[0]}" )"; pwd)
 
 
-electrum_config="/etc/electrum.conf"
+electrum_config="/etc/electrum-drk.conf"
 function read_config()
 {
     text=$1
@@ -25,18 +25,18 @@ function write_config()
 # create config file
 if [ ! -f $electrum_config ]; then
     echo "Creating config file"
-    cp $source_dir"/electrum.conf.sample" $electrum_config
+    cp $source_dir"/electrum-drk.conf.sample" $electrum_config
 fi
 
 
 # read username
 user=$(read_config "username")
 if ! [ "$user" ]; then
-    read -p "username for running daemon (default: electrum) " -r
+    read -p "username for running daemon (default: electrum-drk) " -r
     if [ $REPLY ]; then
 	user=$REPLY
     else
-	user="electrum"
+	user="electrum-drk"
     fi 
     write_config "username" $user
 fi
@@ -52,7 +52,7 @@ fi
 
 
 # read path from config
-default_path="/var/electrum-server"
+default_path="/var/electrum-drk-server"
 path=$(read_config "path")
 if ! [ "$path" ]; then
     read -p "Path for database (default: $default_path) " -r
@@ -65,7 +65,7 @@ if ! [ "$path" ]; then
 fi
 
 # read path from config
-default_logfile="/var/log/electrum.log"
+default_logfile="/var/log/electrum-drk.log"
 logfile=$(read_config "logfile")
 if ! [ "$logfile" ]; then
     read -p "Path of logfile (default: $default_logfile) " -r

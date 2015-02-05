@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="electrum-server",
+    name="electrum-drk-server",
     version="0.9",
     scripts=['run_electrum_server','electrum-server'],
     install_requires=['plyvel','jsonrpclib', 'irc>=11'],
@@ -22,12 +22,12 @@ setup(
         'electrumserver.stratum_tcp',
         'electrumserver.stratum_http'
     ],
-    description="Bitcoin Electrum Server",
-    author="Thomas Voegtlin",
-    author_email="thomasv1@gmx.de",
+    description="Darkcoin Electrum Server",
+    author="Thomas Voegtlin","Propulsion",
+    author_email="thomasv1@gmx.de","Propulsion@DarkcoinTalk.org",
     license="GNU Affero GPLv3",
-    url="https://github.com/spesmilo/electrum-server/",
-    long_description="""Server for the Electrum Lightweight Bitcoin Wallet"""
+    url="https://github.com/spesmilo/electrum-server/","https://github.com/Propulsions/electrum-drk-server/"
+    long_description="""Server for the Electrum Lightweight Darkcoin Wallet"""
 )
 
 

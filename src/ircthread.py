@@ -49,17 +49,17 @@ class IrcThread(threading.Thread):
             s += 'p' + self.pruning_limit + ' '
 
         def add_port(letter, number):
-            DEFAULT_PORTS = {'t':'50001', 's':'50002', 'h':'8081', 'g':'8082'}
+            DEFAULT_PORTS = {'t':'50011', 's':'50012', 'h':'8091', 'g':'8092'} #changed default ports
             if not number: return ''
             if DEFAULT_PORTS[letter] == number:
                 return letter + ' '
             else:
                 return letter + number + ' '
 
-        s += add_port('t',self.stratum_tcp_port)
-        s += add_port('h',self.stratum_http_port)
-        s += add_port('s',self.stratum_tcp_ssl_port)
-        s += add_port('g',self.stratum_http_ssl_port)
+        s += add_port('t',self.stratum_tcp_port) #50011
+        s += add_port('h',self.stratum_http_port) #8091
+        s += add_port('s',self.stratum_tcp_ssl_port) #50012
+        s += add_port('g',self.stratum_http_ssl_port) #8092
         return s
 
     def start(self, queue):
@@ -67,20 +67,20 @@ class IrcThread(threading.Thread):
         threading.Thread.start(self)
  
     def on_connect(self, connection, event):
-        connection.join("#electrum")
+        connection.join("#electrum-drk")
 
     def on_join(self, connection, event):
-        m = re.match("(E_.*)!", event.source)
+        m = re.match("(D_.*)!", event.source)
         if m:
             connection.who(m.group(1))
 
     def on_quit(self, connection, event):
-        m = re.match("(E_.*)!", event.source)
+        m = re.match("(D_.*)!", event.source)
         if m:
             self.queue.put(('quit', [m.group(1)]))
         
     def on_kick(self, connection, event):
-        m = re.match("(E_.*)", event.arguments[0])
+        m = re.match("(D_.*)", event.arguments[0])
         if m:
             self.queue.put(('quit', [m.group(1)]))
 
@@ -102,7 +102,7 @@ class IrcThread(threading.Thread):
 
     def on_name(self, connection, event):
         for s in event.arguments[2].split():
-            if s.startswith("E_"):
+            if s.startswith("D_"):
                 connection.who(s)
 
     def run(self):
