@@ -21,6 +21,7 @@ import time
 import hashlib
 import sys
 
+
 __b58chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 __b58base = len(__b58chars)
 
@@ -49,12 +50,10 @@ def var_int(i):
     else:
         return "ff" + int_to_hex(i, 8)
 
-
-Hash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
-
+#Changing Hash to Darkcoin's X11 Function
+Hash = lambda x: __import__('darkcoin_hash').getPoWHash(x))
 
 hash_encode = lambda x: x[::-1].encode('hex')
-
 
 hash_decode = lambda x: x.decode('hex')[::-1]
 
