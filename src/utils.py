@@ -20,6 +20,7 @@ import threading
 import time
 import hashlib
 import sys
+import darkcoin_hash as darkhash
 
 
 __b58chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
@@ -51,7 +52,7 @@ def var_int(i):
         return "ff" + int_to_hex(i, 8)
 
 #Changing Hash to Darkcoin's X11 Function
-Hash = lambda x: __import__('darkcoin_hash').getPoWHash(x))
+Hash = lambda x: darkhash.getPoWHash(x)
 
 hash_encode = lambda x: x[::-1].encode('hex')
 
