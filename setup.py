@@ -23,10 +23,10 @@ setup(
         'electrumserver.stratum_http'
     ],
     description="Darkcoin Electrum Server",
-    author="Thomas Voegtlin","Propulsion",
-    author_email="thomasv1@gmx.de","Propulsion@DarkcoinTalk.org",
+    author="Thomas Voegtlin, Propulsion",
+    author_email="thomasv1@gmx.de, Propulsion@DarkcoinTalk.org",
     license="GNU Affero GPLv3",
-    url="https://github.com/spesmilo/electrum-server/","https://github.com/Propulsions/electrum-drk-server/"
+    url="https://github.com/spesmilo/electrum-server/, https://github.com/Propulsions/electrum-drk-server/",
     long_description="""Server for the Electrum Lightweight Darkcoin Wallet"""
 )
 
