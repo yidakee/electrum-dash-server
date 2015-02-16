@@ -40,7 +40,7 @@ class IrcThread(threading.Thread):
             self.nick = Hash(self.host)[:5].encode("hex")
         self.pruning = True
         self.pruning_limit = config.get('leveldb', 'pruning_limit')
-        self.nick = 'E_' + self.nick
+        self.nick = 'D_' + self.nick
         self.password = None
 
     def getname(self):
