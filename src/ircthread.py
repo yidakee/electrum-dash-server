@@ -49,17 +49,18 @@ class IrcThread(threading.Thread):
             s += 'p' + self.pruning_limit + ' '
 
         def add_port(letter, number):
-            DEFAULT_PORTS = {'t':'50011', 's':'50012', 'h':'8091', 'g':'8092'} #changed default ports
+    #IRC Ports do not need to be changed for different coin version.
+            DEFAULT_PORTS = {'t':'50001', 's':'50002', 'h':'8081', 'g':'8082'} 
             if not number: return ''
             if DEFAULT_PORTS[letter] == number:
                 return letter + ' '
             else:
                 return letter + number + ' '
 
-        s += add_port('t',self.stratum_tcp_port) #50011
-        s += add_port('h',self.stratum_http_port) #8091
-        s += add_port('s',self.stratum_tcp_ssl_port) #50012
-        s += add_port('g',self.stratum_http_ssl_port) #8092
+        s += add_port('t',self.stratum_tcp_port) #50001
+        s += add_port('h',self.stratum_http_port) #8081
+        s += add_port('s',self.stratum_tcp_ssl_port) #50002
+        s += add_port('g',self.stratum_http_ssl_port) #8082
         return s
 
     def start(self, queue):
