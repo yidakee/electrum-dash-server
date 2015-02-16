@@ -52,7 +52,9 @@ def var_int(i):
         return "ff" + int_to_hex(i, 8)
 
 #Changing Hash to Darkcoin's X11 Function
-Hash = lambda x: darkhash.getPoWHash(x)
+HashX11 = lambda x: darkhash.getPoWHash(x)
+
+Hash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 
 hash_encode = lambda x: x[::-1].encode('hex')
 
@@ -230,7 +232,7 @@ def timestr():
 import logging
 import logging.handlers
 
-logger = logging.getLogger('drkelectrum')
+logger = logging.getLogger('electrum-drk')
 
 def init_logger(logfile):
     hdlr = logging.handlers.WatchedFileHandler(logfile)
