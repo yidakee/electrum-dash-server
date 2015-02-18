@@ -18,7 +18,8 @@ banner_file = /etc/electrum-drk-tn.banner
 #ssl_certfile = /path/to/electrum-server.crt
 #ssl_keyfile = /path/to/electrum-server.key
 logfile = /var/log/electrum-drk-tn.log
-donation_address = 
+donation_address =
+network = Darkcoin_testnet
 
 [leveldb]
 # path to your database
