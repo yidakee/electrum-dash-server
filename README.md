@@ -1,5 +1,5 @@
-Electrum-Darkcoin-Server for the Electrum client
-=========================================
+Electrum-Darkcoin-Server TESTNET for the Electrum client
+========================================================
 
   * Original Author: Thomas Voegtlin (ThomasV on the bitcointalk forum)
   * Darkcoin codebase port Authors: ELM4Ever, Propulsion
@@ -7,6 +7,7 @@ Electrum-Darkcoin-Server for the Electrum client
 
 Features
 --------
+  * Testnet Version for the Darkcoin network. (Becuase who wants to lose coins)
 
   * The server indexes UTXOs by address, in a Patricia tree structure
     described by Alan Reiner (see the 'ultimate blockchain
