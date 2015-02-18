@@ -4,7 +4,7 @@ username =
 # hostname. set it to a FQDN in order to be reached from outside
 host = localhost
 # ports
-electrum_rpc_port = 8010
+electrum_rpc_port = 8020
 stratum_tcp_port = 50001
 #stratum_tcp_ssl_port = 50002
 #report_host = 
@@ -12,12 +12,12 @@ stratum_tcp_port = 50001
 #report_stratum_tcp_ssl_port = 50002
 password = secret
 banner = Welcome to Electrum-DRK!
-banner_file = /etc/electrum-drk.banner
+banner_file = /etc/electrum-drk-tn.banner
 #irc = no
 #irc_nick = <yournickname>
 #ssl_certfile = /path/to/electrum-server.crt
 #ssl_keyfile = /path/to/electrum-server.key
-logfile = /var/log/electrum-drk.log
+logfile = /var/log/electrum-drk-tn.log
 donation_address = 
 
 [leveldb]
@@ -29,7 +29,7 @@ pruning_limit = 1000
 
 [darkcoind]
 darkcoind_host = localhost
-darkcoind_port = 9998
+darkcoind_port = 19998
 # user and password from darkcoin.conf
 darkcoind_user = 
 darkcoind_password = 

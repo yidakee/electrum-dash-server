@@ -11,7 +11,7 @@ fi
 source_dir=$(cd "$(dirname "${BASH_SOURCE[0]}" )"; pwd)
 
 
-electrum_config="/etc/electrum-drk.conf"
+electrum_config="/etc/electrum-drk-tn.conf"
 function read_config()
 {
     text=$1
@@ -25,7 +25,7 @@ function write_config()
 # create config file
 if [ ! -f $electrum_config ]; then
     echo "Creating config file"
-    cp $source_dir"/electrum-drk.conf.sample" $electrum_config
+    cp $source_dir"/electrum-drk-tn.conf.sample" $electrum_config
 fi
 
 
@@ -52,7 +52,7 @@ fi
 
 
 # read path from config
-default_path="/var/electrum-drk-server"
+default_path="/var/electrum-drk-server/testnet"
 path=$(read_config "path")
 if ! [ "$path" ]; then
     read -p "Path for database (default: $default_path) " -r
@@ -65,7 +65,7 @@ if ! [ "$path" ]; then
 fi
 
 # read path from config
-default_logfile="/var/log/electrum-drk.log"
+default_logfile="/var/log/electrum-drk-tn.log"
 logfile=$(read_config "logfile")
 if ! [ "$logfile" ]; then
     read -p "Path of logfile (default: $default_logfile) " -r
@@ -90,7 +90,7 @@ if [ ! -d $path ]; then
     read -p "Do you want to download it from the Electrum foundry to $path ? " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-	#mkdir -p $path
+	mkdir -p $path
 	#wget -O - "http://foundry.electrum.org/leveldb-dump/electrum-fulltree-100-latest.tar.gz" | tar --extract --gunzip --strip-components 1 --directory $path --file -
     echo "Darkcoin database isn't available for download at this time."
     fi
