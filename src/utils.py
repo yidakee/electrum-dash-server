@@ -20,7 +20,7 @@ import threading
 import time
 import hashlib
 import sys
-import darkcoin_hash as darkhash
+import dash_hash as dashhash
 
 
 __b58chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
@@ -28,8 +28,8 @@ __b58base = len(__b58chars)
 
 global PUBKEY_ADDRESS
 global SCRIPT_ADDRESS
-PUBKEY_ADDRESS = 76 #Darkcoin src/chainparams.cpp L69
-SCRIPT_ADDRESS = 16 #Darkcoin src/chainparams.cpp L70
+PUBKEY_ADDRESS = 76 #Dash src/chainparams.cpp L168
+SCRIPT_ADDRESS = 16 #Dash src/chainparams.cpp L169
 
 def rev_hex(s):
     return s.decode('hex')[::-1].encode('hex')
@@ -51,8 +51,8 @@ def var_int(i):
     else:
         return "ff" + int_to_hex(i, 8)
 
-#Changing Hash to Darkcoin's X11 Function
-HashX11 = lambda x: darkhash.getPoWHash(x)
+# Dash's X11 Function
+HashX11 = lambda x: dashhash.getPoWHash(x)
 
 Hash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 
@@ -128,7 +128,7 @@ def hash_160_to_script_address(h160):
     return hash_160_to_address(h160, SCRIPT_ADDRESS)
 
 
-def hash_160_to_address(h160, addrtype = 76): #Darkcoin src/chainparams.cpp L69
+def hash_160_to_address(h160, addrtype = 76): #Dash src/chainparams.cpp L168
     """ Checks if the provided hash is actually 160bits or 20 bytes long and returns the address, else None
     """
     if h160 is None or len(h160) is not 20:
@@ -232,7 +232,7 @@ def timestr():
 import logging
 import logging.handlers
 
-logger = logging.getLogger('electrum-drk')
+logger = logging.getLogger('electrum-dash')
 
 def init_logger(logfile):
     hdlr = logging.handlers.WatchedFileHandler(logfile)

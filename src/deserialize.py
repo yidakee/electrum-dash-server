@@ -264,7 +264,7 @@ def parse_Transaction(vds, is_coinbase):
     d['lockTime'] = vds.read_uint32()
     return d
 
-#Darkcoin src/script.h L226 through L367
+#Dash src/script/script.h L26 through L170
 opcodes = Enumeration("Opcodes", [
     ("OP_0", 0x00), ("OP_PUSHDATA1", 0x4c), ("OP_PUSHDATA2", 0x4d), "OP_PUSHDATA4", "OP_1NEGATE", "OP_RESERVED",
     "OP_1", "OP_2", "OP_3", "OP_4", "OP_5", "OP_6", "OP_7",

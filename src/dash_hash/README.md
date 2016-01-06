@@ -1,7 +1,7 @@
-darkcoin_hash (python) v1.1
-==============================
+dash_hash (python) v1.1
+=======================
 
-Python module for Darkcoin's X11 hashing.
+Python module for Dash's X11 hashing.
 
 
 Install
