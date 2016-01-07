@@ -139,7 +139,7 @@ find out the best way to do this.
 We will download the latest git snapshot for Electrum to configure and install it:
 
     $ cd ~
-    $ git clone https://github.com/Propulsions/electrum-dash-server.git
+    $ git clone https://github.com/dashpay/electrum-dash-server.git
     $ cd electrum-dash-server/src/dash_hash
     $ sudo python setup.py install
     $ cd ../..
